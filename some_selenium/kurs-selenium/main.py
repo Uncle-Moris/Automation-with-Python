@@ -13,6 +13,7 @@ from selenium.common.exceptions import NoSuchElementException
 
 
 
+
 @pytest.fixture
 def test_setup():
     global driver
