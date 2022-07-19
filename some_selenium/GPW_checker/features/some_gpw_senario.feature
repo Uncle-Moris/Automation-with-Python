@@ -4,6 +4,7 @@ Feature: # Enter feature name here
 
   Scenario: # Enter scenario name here
     Given lunch chrome browser
-    When open homepage
-    Then verify chasing a first car
-    And close browser
+    When open gpw homepage
+    Then input shear name
+    And close brow-ser
+    And check shear value od shear is not empty
