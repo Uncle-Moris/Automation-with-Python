@@ -5,6 +5,9 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 
+from .gpw_home_page import GPWHomePage
+
+d = GPWHomePage()
 
 
 #if __name__ == '__main__':
