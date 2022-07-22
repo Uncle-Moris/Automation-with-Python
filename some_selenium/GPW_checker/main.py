@@ -7,21 +7,22 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 from .gpw_home_page import GPWHomePage
 
-d = GPWHomePage()
 
 
-#if __name__ == '__main__':
-@pytest.fixture()
-def test_setup():
-    global driver
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
-    driver.get('https://www.gpw.pl/akcje')
-    driver.maximize_window()
-    yield
-    driver.quit()
+class TestGPWSearch:
+
+    @pytest.fixture()
+    def setup(self):
+        self.driver = webdriver.Chrome(ChromeDriverManager().install())
+        self.driver.implicitly_wait(10)
+        self.driver.maximize_window()
+        yield
+        self.driver.quit()
 
 
-def test_site_title(test_setup):
-    assert driver.title == 'Główny Rynek GPW - Akcje i PDAs'
+    def test_gpw_search(self, setup):
+        self.driver.get("https://www.gpw.pl")
+        search = GPWHomePage(self.driver)
+        assert driver.title == 'Główny Rynek GPW - Akcje i PDAs'
 
 
