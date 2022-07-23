@@ -21,4 +21,3 @@ class TestHotelSearch:
         search_hotel_page.set_date_range("12/09/2022", "15/09/2022")
         search_hotel_page.set_travellers("2", "2")
         search_hotel_page.perform_search()
-
