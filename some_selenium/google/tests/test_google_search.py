@@ -1,7 +1,9 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from some_selenium.google.pages.google_home_page import GoogleHomePage
-from some_selenium.google.pages.google_result_page import GoogleResultPage
+#from some_selenium.google.pages.google_home_page import GoogleHomePage
+#from some_selenium.google.pages.google_result_page import GoogleResultPage
+
+from Auto
 
 import pytest
 from webdriver_manager.chrome import ChromeDriverManager

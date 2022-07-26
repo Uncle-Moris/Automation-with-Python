@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from time import sleep
-
+from selenium.webdriver.support import expected_conditions as EC
 
 class GPWHomePage:
 
@@ -20,6 +20,7 @@ class GPWHomePage:
         self.driver.find_element(By.XPATH, self.shears_and_pda_xpath).click()
         self.driver.implicitly_wait(10)
         sleep(9)
-        self.driver.find_element(By.XPATH, '/html/body/section[2]/div[2]/div[5]/div/div[1]/div[1]/div[1]/div[1]/div[2]/div/input').send_keys(shear)
-
+        #self.driver.find_element(By.XPATH, '/html/body/section[2]/div[2]/div[5]/div/div[1]/div[1]/div[1]/div[1]/div[2]/div/input').send_keys(shear)
+        self.input = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, self.input_shear_name)))
+        self.input.send_keys(shear)
         self.driver.find_element(self.searching_btn_xpath).click()
