@@ -3,6 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from time import sleep
 from selenium.webdriver.support import expected_conditions as EC
 
+
 class GPWHomePage:
 
     def __init__(self, driver):
