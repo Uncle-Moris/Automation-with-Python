@@ -36,6 +36,7 @@ while True:
                 driver.find_element(By.XPATH, f'//*[@id="{product}"]').click()
             except:
                 pass
+
         if n == 12:
             break
         n += 1

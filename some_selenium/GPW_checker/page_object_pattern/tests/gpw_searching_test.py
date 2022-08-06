@@ -1,13 +1,10 @@
 import pytest
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
-
 from some_selenium.GPW_checker.page_object_pattern.pages.gpw_home_page import GPWHomePage
-from time import sleep
 
 
 class TestShearSearch:
-
     @pytest.fixture()
     def setup(self):
         self.driver = webdriver.Chrome(ChromeDriverManager().install())

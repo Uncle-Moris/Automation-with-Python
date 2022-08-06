@@ -23,6 +23,5 @@ class OLXSearch(unittest.TestCase):
         self.driver.quit()
 
 
-
 if __name__ == '__main__':
     OLXSearch.test_search_in_OLX(name='agava')
