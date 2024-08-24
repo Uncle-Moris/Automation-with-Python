@@ -1,0 +1,68 @@
+# Python files
+*.py[cod]
+*.pyc
+__pycache__/
+*.pyo
+
+# Environment files
+.env
+.venv/
+venv/
+ENV/
+
+# IDE and editors
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+
+# Dependencies
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+bin/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+
+# Testing
+.coverage
+.tox/
+coverage.xml
+.cache
+nosetests.xml
+*.cover
+.hypothesis/
+
+# Docker
+**/Dockerfile
+*.log
+docker-compose.yml
+
+# Terraform
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+*.db
+*.sqlite3
+
+# Others
+*.tar.gz
+*.zip
+*.tar
+*.7z
+*.rar
+*.tar.xz
+
+# Temporary
