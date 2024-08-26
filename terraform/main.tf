@@ -69,7 +69,7 @@ resource "aws_autoscaling_group" "ecs_autoscaling_group" {
   max_size             = 2
   min_size             = 1
   launch_configuration = aws_launch_configuration.ecs_instance.id
-  vpc_zone_identifier  = ["subnet-0123456789abcdef0"]  # Replace with your subnet ID
+  vpc_zone_identifier  = ["subnet-058b3c29704b1ca2d"]  # Replace with your subnet ID
 
   tag {
     key                 = "Name"
