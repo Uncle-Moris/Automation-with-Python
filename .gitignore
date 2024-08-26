@@ -40,11 +40,6 @@ nosetests.xml
 *.cover
 .hypothesis/
 
-# Docker
-**/Dockerfile
-*.log
-docker-compose.yml
-
 # Terraform
 .terraform/
 terraform.tfstate
