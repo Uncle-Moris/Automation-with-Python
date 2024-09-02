@@ -44,6 +44,7 @@ nosetests.xml
 .terraform/
 terraform.tfstate
 terraform.tfstate.backup
+.terraform.loc.hcl
 
 # Logs and databases
 *.log
