@@ -51,7 +51,7 @@ resource "aws_iam_instance_profile" "ecs_instance_profile" {
 
 resource "aws_launch_configuration" "ecs_instance" {
   name                 = "ecs-instance-launch-configuration"
-  image_id             = "ami-00c6ce3be0974ed40"  # Ensure this is a valid ECS-optimized AMI
+  image_id             = "ami-0de02246788e4a354"  # Ensure this is a valid ECS-optimized AMI
   instance_type        = "t2.micro"
   iam_instance_profile = aws_iam_instance_profile.ecs_instance_profile.name
   user_data = <<-EOF
@@ -69,7 +69,7 @@ resource "aws_autoscaling_group" "ecs_autoscaling_group" {
   max_size             = 2
   min_size             = 1
   launch_configuration = aws_launch_configuration.ecs_instance.id
-  vpc_zone_identifier  = ["subnet-058b3c29704b1ca2d"]  # Replace with your subnet ID
+  vpc_zone_identifier  = ["subnet-058b3c29704b1ca2d"]
 
   tag {
     key                 = "Name"
