@@ -29,7 +29,7 @@ jobs:
 
       - name: Run Flask tests
         run: |
-          pytest src/server/tests
+          pytest src/server/test_app.py
 
   test_react:
     runs-on: ubuntu-latest
