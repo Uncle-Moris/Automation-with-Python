@@ -51,6 +51,7 @@ jobs:
 
       - name: Run React tests
         run: |
+          cd src/client
           npm test -- --watchAll=false
 
   build_flask:
@@ -76,7 +77,6 @@ jobs:
       - name: Build Flask Docker image
         run: |
           docker build -t 533266964491.dkr.ecr.eu-central-1.amazonaws.com/flask-react-simple-app:client-latest -f src/server/Dockerfile src/server/
-
 
       - name: Push Flask Docker image to ECR
         run: |
