@@ -46,7 +46,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd src/client
+          cd src/client/src
           npm install
 
       - name: Run React tests
