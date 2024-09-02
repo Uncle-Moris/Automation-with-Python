@@ -109,3 +109,36 @@ jobs:
       - name: Push React Docker image to ECR
         run: |
           docker push 533266964491.dkr.ecr.eu-central-1.amazonaws.com/flask-react-simple-app:react-latest
+  deploy_flask:
+    runs-on: ubuntu-latest
+    name: Deploy Flask to ECS
+    needs: build_flask
+
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Update ECS Service for Flask
+        run: |
+          aws ecs update-service --cluster flask-ecs-cluster --service flask-service --force-new-deployment
+
+  deploy_react:
+    runs-on: ubuntu-latest
+    name: Deploy React to ECS
+    needs: build_react
+
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Update ECS Service for React
+        run: |
+          aws ecs update-service --cluster react-ecs-cluster --service react-service --force-new-deployment
