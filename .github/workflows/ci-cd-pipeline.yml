@@ -71,16 +71,16 @@ jobs:
 
       - name: Log in to Amazon ECR
         run: |
-          aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
+          aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin 533266964491.dkr.ecr.eu-central-1.amazonaws.com
 
       - name: Build Flask Docker image
         run: |
-          docker build -t ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY_FLASK }}:latest -f src/server/Dockerfile .
+          docker build -t 533266964491.dkr.ecr.eu-central-1.amazonaws.com/flask-react-simple-app:client-latest -f src/server/Dockerfile .
 
       - name: Push Flask Docker image to ECR
         run: |
-          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY_FLASK }}:latest
-
+          docker push 533266964491.dkr.ecr.eu-central-1.amazonaws.com/flask-react-simple-app:client-latest
+          
   build_react:
     runs-on: ubuntu-latest
     name: Build and Push React Docker Image
