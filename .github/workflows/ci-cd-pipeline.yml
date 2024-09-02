@@ -42,11 +42,11 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '22'
+          node-version: '14'
 
       - name: Install dependencies
         run: |
-          cd src/client/src
+          cd src/client
           npm install
 
       - name: Run React tests
@@ -100,12 +100,12 @@ jobs:
 
       - name: Log in to Amazon ECR
         run: |
-          aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
+          aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin 533266964491.dkr.ecr.eu-central-1.amazonaws.com
 
       - name: Build React Docker image
         run: |
-          docker build -t ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY_REACT }}:latest -f src/client/Dockerfile .
+          docker build -t 533266964491.dkr.ecr.eu-central-1.amazonaws.com/flask-react-simple-app:react-latest -f src/client/Dockerfile src/client/
 
       - name: Push React Docker image to ECR
         run: |
-          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY_REACT }}:latest
+          docker push 533266964491.dkr.ecr.eu-central-1.amazonaws.com/flask-react-simple-app:react-latest
