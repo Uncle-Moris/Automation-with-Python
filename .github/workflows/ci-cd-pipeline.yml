@@ -75,12 +75,13 @@ jobs:
 
       - name: Build Flask Docker image
         run: |
-          docker build -t 533266964491.dkr.ecr.eu-central-1.amazonaws.com/flask-react-simple-app:client-latest -f src/server/Dockerfile .
+          docker build -t 533266964491.dkr.ecr.eu-central-1.amazonaws.com/flask-react-simple-app:client-latest -f src/server/Dockerfile src/server/
+
 
       - name: Push Flask Docker image to ECR
         run: |
           docker push 533266964491.dkr.ecr.eu-central-1.amazonaws.com/flask-react-simple-app:client-latest
-          
+
   build_react:
     runs-on: ubuntu-latest
     name: Build and Push React Docker Image
